@@ -13,4 +13,28 @@ import json  # https://docs.python.org/3/library/json.html
 def aggregate(doc: str) -> json:
     """Aggregate is the primary API surface."""
     # TODO
-    return '{"this": 1, "is": 1, "a": 1, "test": 1, "job": 1, "description": 1}'
+
+    #Characters within a job posting that are irrelevant to keyword searches
+    removal_characters = ['.', ',', '!', '_', '?', ';']
+
+    for character in removal_characters:
+        doc = doc.replace(character, '')
+
+    #Lowercase entire job posting in order to count uppercase and lowercase as same word (Example: Software == software)
+    doc = doc.lower()
+
+    keywords_lst = doc.split()
+
+    keywords_dict = {}
+
+    #If word is not in dictionary it will be added with 1. If already exists, 1 will be added to existing occurrence. 
+    for word in keywords_lst:
+        if word not in keywords_dict:
+            keywords_dict[word] = 1
+        else:
+            keywords_dict[word] += 1
+
+    keywords_json = json.dumps(keywords_dict)
+    
+    return keywords_json
+
