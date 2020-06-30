@@ -19,6 +19,7 @@ To run the test suite, execute `pytest` in the project's root directory.
 ## Authors
 ---
 **Jamie Rodriguez** - [JaimeVRodriguez](https://github.com/JaimeVRodriguez)
+
 **Zach Wahrer** - [zachtheclimber](https://github.com/zachtheclimber)
 
 ##License
