@@ -34,6 +34,7 @@ def test_complex_aggregate():
         "test": 2,
         "job": 2,
         "description": 1,
+        "what": 1,
         "i": 1,
         "am": 1,
         "testing": 1
