@@ -1,0 +1,35 @@
+Software Engineer
+Super Cool Company
+Bozeman, MT or Remote
+
+Super Cool Company is seeking a talented Software Engineer to work at our
+Bozeman, MT location (or remotely for the right candidate). If you look
+working with awesome software and building amazing things, you'll love
+being a part of SCC.
+
+Technologies You'll Use:
+    Python, Go, and Java
+
+Skills You'll Need:
+    Attention to detail
+    Strong development experience
+    Amazing communication skills
+
+Responsibilities:
+    Work with CTO and rest of team to expand our codebase and product capabilities.
+    Write tests for all code authored.
+    Assist in the deployment of services.
+    Collaborate with entire team on architectural and design choices.
+
+Required Qualifications:
+    Proven experience with one of the following: Python, Go, Java
+    Interest in growing and contributing to a startup.
+    Strong interest in learning new technologies and using them.
+    Write clean, easy-to-understand code.
+    Able to learn from your mistakes.
+
+Preferred Qualifications:
+    Bachelor's Degree in Computer Science or equivalent experience.
+    Familiarity with AWS or another cloud platform.
+    Strong background using MySQL or PostgreSQL.
+    Experience working with a distributed team.
