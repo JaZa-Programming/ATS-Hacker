@@ -1,4 +1,4 @@
-"""The file processor for ats_hacker.
+"""The file importer for ats_hacker.
 
 :param filename: A string representation of the filename to be processed.
 
@@ -7,7 +7,7 @@
 """
 
 
-def process_file(filename: str) -> str:
+def import_file(filename: str) -> str:
     """Opens a file, processes it, and returns a string representation."""
     # TODO
     # We will need to decide how to handle newline "\n" characters. Given the
