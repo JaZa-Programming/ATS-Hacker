@@ -20,19 +20,18 @@ def aggregate(doc: str) -> json:
     for character in removal_characters:
         doc = doc.replace(character, '')
 
-    #Lowercase entire job posting in order to count uppercase and lowercase as same word (Example: Software == software)
-    keywords_lst = doc.lower().split()
+    
 
     keywords_dict = {}
 
+    #Lowercase entire job posting in order to count uppercase and lowercase as same word (Example: Software == software)
+    #Create list of individual words in job posting
     #If word is not in dictionary it will be added with 1. If already exists, 1 will be added to existing occurrence. 
-    for word in keywords_lst:
+    for word in doc.lower().split():
         if word not in keywords_dict:
             keywords_dict[word] = 1
         else:
             keywords_dict[word] += 1
-
-    keywords_json = json.dumps(keywords_dict)
     
-    return keywords_json
+    return json.dumps(keywords_dict)
 
