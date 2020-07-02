@@ -20,8 +20,6 @@ def aggregate(doc: str) -> json:
     for character in removal_characters:
         doc = doc.replace(character, '')
 
-    
-
     keywords_dict = {}
 
     #Lowercase entire job posting in order to count uppercase and lowercase as same word (Example: Software == software)
