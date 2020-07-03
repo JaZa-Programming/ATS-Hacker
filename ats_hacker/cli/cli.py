@@ -19,12 +19,15 @@ class CLI:
         args = interface._parse_args()
         interface._process_document(import_file(args.filename[0]))
         if args.o == "json":
-            print(interface.json_encoded_counts)
+            interface._json_print()
         else:
             interface._pretty_print()
 
     def _decode_json(self, json_document):
         return json.loads(json_document)
+
+    def _json_print(self):
+        print(self.json_encoded_counts)
 
     def _parse_args(self):
         parser = argparse.ArgumentParser(
