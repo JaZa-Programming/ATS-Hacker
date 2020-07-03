@@ -1,7 +1,7 @@
 """Tests for the file_import function."""
 
 import pytest
-from ats_hacker.api.import_file import import_file
+from api.import_file import import_file
 
 
 def test_sucessful_file_open():

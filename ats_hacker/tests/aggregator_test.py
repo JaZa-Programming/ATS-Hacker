@@ -1,7 +1,7 @@
 """Tests for the keyword aggregator api."""
 
 import json
-from ats_hacker.api.aggregator import aggregate
+from api.aggregator import aggregate
 
 
 def test_aggregate_return_type():
