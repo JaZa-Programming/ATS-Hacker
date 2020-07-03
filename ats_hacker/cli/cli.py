@@ -29,11 +29,17 @@ class CLI:
         interface = CLI()
         args = interface._parse_args()
         interface.process_document(import_file(args.filename[0]))
-        print(interface.keyword_counts)
+        if args.o == "json":
+            print(interface.json_encoded_counts)
+        else:
+            # TODO: Call pretty-print here instead
+            print("Pretty: " + str(interface.keyword_counts))
 
     def _parse_args(self):
         parser = argparse.ArgumentParser(
             description='Keyword aggregator for ATS optimization.')
         parser.add_argument('filename', metavar='filename', type=str, nargs=1,
                             help='txt filename for keyword aggregation')
+        parser.add_argument('-o', metavar='json', type=str, nargs='?',
+                            help='output in raw JSON format')
         return parser.parse_args()
