@@ -25,7 +25,7 @@ def test_keyword_counts():
     assert cli.keyword_counts == keyword_counts
 
 
-def test_command_line_print_help_with_no_args(capsys, monkeypatch):
+def test_command_line_with_no_filename(capsys, monkeypatch):
     monkeypatch.setattr(sys, "argv", ['ats_hacker'])
     try:
         CLI.start()
@@ -58,8 +58,4 @@ def test_command_line_run_successful_simple():
 
 
 def test_command_line_run_successful_complex():
-    pass
-
-
-def test_command_line_run_without_filename():
     pass
