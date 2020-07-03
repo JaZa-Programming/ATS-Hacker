@@ -29,3 +29,7 @@ def remove_characters(doc: str) -> str:
     for character in removal_characters:
         doc = doc.replace(character, '')
     return doc
+
+
+def remove_words(doc: str) -> str:
+    pass
