@@ -8,5 +8,5 @@
 """
 
 
-def remove_words(keywords: str, word_filename: str) -> str:
+def remove_words(keywords: dict, word_filename: str) -> dict:
     pass
