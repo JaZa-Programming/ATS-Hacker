@@ -14,21 +14,10 @@ class CLI:
         self.keyword_counts = {}
         self.json_encoded_counts = ""
 
-    def process_document(self, document: str):
-        self.document = document
-        self._populate_keyword_counts()
-
-    def _populate_keyword_counts(self):
-        self.json_encoded_counts = aggregate(self.document)
-        self.keyword_counts = self._decode_json(self.json_encoded_counts)
-
-    def _decode_json(self, json_document):
-        return json.loads(json_document)
-
     def start():
         interface = CLI()
         args = interface._parse_args()
-        interface.process_document(import_file(args.filename[0]))
+        interface._process_document(import_file(args.filename[0]))
         if args.o == "json":
             print(interface.json_encoded_counts)
         else:
@@ -43,3 +32,14 @@ class CLI:
         parser.add_argument('-o', metavar='json', type=str, nargs='?',
                             help='output in raw JSON format')
         return parser.parse_args()
+
+    def _process_document(self, document: str):
+        self.document = document
+        self._populate_keyword_counts()
+
+    def _populate_keyword_counts(self):
+        self.json_encoded_counts = aggregate(self.document)
+        self.keyword_counts = self._decode_json(self.json_encoded_counts)
+
+    def _decode_json(self, json_document):
+        return json.loads(json_document)
