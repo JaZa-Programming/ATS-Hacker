@@ -1,6 +1,7 @@
 """Tests for the command line interface for ats_hacker."""
 
 from cli.cli import CLI
+import sys
 
 
 def test_cli_class_instantiation():
@@ -24,11 +25,16 @@ def test_keyword_counts():
     assert cli.keyword_counts == keyword_counts
 
 
-# def test_command_line_print_help_with_no_args(capsys):
-#     CLI.start()
-#     out, err = capsys.readouterr()
-#     want = "Usage: python3 ats_hacker <filename>"
-#     assert want == out
+def test_command_line_print_help_with_no_args(capsys, monkeypatch):
+    monkeypatch.setattr(sys, "argv", ['ats_hacker'])
+    try:
+        CLI.start()
+    except SystemExit:
+        pass
+    _, err = capsys.readouterr()
+    want = "usage: ats_hacker [-h] filename\n" \
+        "ats_hacker: error: the following arguments are required: filename\n"
+    assert want == err
 
 
 def test_command_line_print_help_with_dashdash_h_arg(capsys):
