@@ -19,15 +19,12 @@ class CLI:
         args = interface._parse_args()
         interface._process_document(import_file(args.filename[0]))
         if args.o == "json":
-            interface._json_print()
+            interface._print_json()
         else:
-            interface._pretty_print()
+            interface._print_pretty()
 
     def _decode_json(self, json_document):
         return json.loads(json_document)
-
-    def _json_print(self):
-        print(self.json_encoded_counts)
 
     def _parse_args(self):
         parser = argparse.ArgumentParser(
@@ -42,7 +39,10 @@ class CLI:
         self.json_encoded_counts = aggregate(self.document)
         self.keyword_counts = self._decode_json(self.json_encoded_counts)
 
-    def _pretty_print(self):
+    def _print_json(self):
+        print(self.json_encoded_counts)
+
+    def _print_pretty(self):
         # TODO: Implement Pretty Print Feature
         print("Pretty: " + str(self.keyword_counts))
 
