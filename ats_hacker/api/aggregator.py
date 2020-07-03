@@ -10,8 +10,7 @@ import json  # https://docs.python.org/3/library/json.html
 
 
 def aggregate(doc: str) -> json:
-    """Aggregate is the primary API surface."""
-
+    """Aggregate counts keywords in the given string."""
     doc = remove_characters(doc)
 
     keywords_dict = {}
