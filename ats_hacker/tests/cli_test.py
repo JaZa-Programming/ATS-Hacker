@@ -37,8 +37,20 @@ def test_command_line_print_help_with_no_args(capsys, monkeypatch):
     assert want == err
 
 
-def test_command_line_print_help_with_dashdash_h_arg(capsys):
-    pass
+def test_command_line_print_help_with_dash_h_arg(capsys, monkeypatch):
+    monkeypatch.setattr(sys, "argv", ['ats_hacker', '-h'])
+    try:
+        CLI.start()
+    except SystemExit:
+        pass
+    out, _ = capsys.readouterr()
+    want = "usage: ats_hacker [-h] filename\n\n" \
+        "Keyword aggregator for ATS optimization.\n\n" \
+        "positional arguments:\n" \
+        "  filename    txt filename for keyword aggregation\n\n" \
+        "optional arguments:\n" \
+        "  -h, --help  show this help message and exit\n"
+    assert want == out
 
 
 def test_command_line_run_successful_simple():
