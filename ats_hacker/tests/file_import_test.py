@@ -14,7 +14,7 @@ def test_unsuccessful_file_open():
     filename = "ats_hacker/tests/test_data/doesnt-exist.txt"
     with pytest.raises(FileNotFoundError) as e:
         assert import_file(filename)
-    assert str(e.value) == "No such file or directory: 'ats_hacker/tests/test_data/doesnt-exist.txt'"
+    assert str(e.value) == f"No such file or directory: {filename}"
 
 
 def test_successful_file_import():
