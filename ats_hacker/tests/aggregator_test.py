@@ -1,7 +1,14 @@
 """Tests for the keyword aggregator api."""
 
 import json
-from api.aggregator import aggregate
+from api.aggregator import aggregate, remove_characters
+
+
+def test_character_removal():
+    doc = "This. is, a! test_ for? removing; characters."
+    want = "This is a test for removing characters"
+    got = remove_characters(doc)
+    assert want == got
 
 
 def test_aggregate_return_type():
