@@ -14,14 +14,13 @@ class CLI:
         self.keyword_counts = {}
         self.json_encoded_counts = ""
 
-    def start():
-        interface = CLI()
-        args = interface._parse_args()
-        interface._process_document(import_file(args.filename[0]))
+    def start(self):
+        args = self._parse_args()
+        self._process_document(import_file(args.filename[0]))
         if args.o == "json":
-            interface._print_json()
+            self._print_json()
         else:
-            interface._print_pretty()
+            self._print_pretty()
 
     def _decode_json(self, json_document):
         return json.loads(json_document)
