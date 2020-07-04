@@ -10,11 +10,16 @@ def test_sucessful_file_open():
     assert got is not None
 
 
-def test_unsuccessful_file_open():
+def test_unsuccessful_file_open(capsys):
     filename = "ats_hacker/tests/test_data/doesnt-exist.txt"
-    with pytest.raises(FileNotFoundError) as e:
-        assert import_file(filename)
-    assert str(e.value) == f"No such file or directory: {filename}"
+
+    try:
+        _ = import_file(filename)
+    except (FileNotFoundError, SystemExit):
+        pass
+    _, err = capsys.readouterr()
+    want = "ats_hacker: error: No such file or directory: 'ats_hacker/tests/test_data/doesnt-exist.txt'\n"
+    assert err == want
 
 
 def test_successful_file_import():
