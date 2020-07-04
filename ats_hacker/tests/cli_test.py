@@ -1,7 +1,7 @@
 """Tests for the command line interface for ats_hacker."""
 
-from cli.cli import CLI
 import sys
+from cli.cli import CLI
 
 
 def test_cli_class_instantiation():
