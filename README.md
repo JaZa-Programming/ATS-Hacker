@@ -17,6 +17,7 @@ To run the test suite, execute `pytest` in the project's root directory.
 ## Built With
 ---
 * Python3
+* CLI enhancements using pyfiglet and clint. 
 
 ## Authors
 ---
