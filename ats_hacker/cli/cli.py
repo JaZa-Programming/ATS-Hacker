@@ -1,9 +1,12 @@
 """The command line interface class for ats_hacker."""
 
 import argparse
+
 from api.aggregator import aggregate
 from api.helpers import decode_json
 from api.import_file import import_file
+from clint.textui import colored, columns
+from pyfiglet import Figlet
 
 
 class CLI:
@@ -21,7 +24,7 @@ class CLI:
         if args.o == "json":
             self._print_json()
         else:
-            self._print_pretty()
+            self._print_pretty(args.filename[0])
 
     def _populate_keyword_counts(self):
         self.json_encoded_counts = aggregate(self.document)
@@ -30,9 +33,15 @@ class CLI:
     def _print_json(self):
         print(self.json_encoded_counts)
 
-    def _print_pretty(self):
-        # TODO: Implement Pretty Print Feature
-        print("Pretty: " + str(self.keyword_counts))
+    def _print_pretty(self, filename):
+        print(colored.magenta(Figlet(font='mini').renderText('ATS_Hacker')))
+        print(f"Document: {colored.magenta(filename)}\n")
+        col = 20
+        print(columns([(colored.red('Word')), col],
+                      [(colored.blue('Occurances')), col]))
+        for word, count in self.keyword_counts.items():
+            print(columns([word, col], [str(count), col]))
+        print()
 
     def _process_document(self, document: str):
         self.document = document

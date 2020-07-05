@@ -56,8 +56,19 @@ def test_command_line_print_help_with_dash_h_arg(capsys, monkeypatch):
     assert want == out
 
 
-def test_command_line_run_successful_pretty():
-    pass
+def test_command_line_run_successful_pretty(capsys, monkeypatch):
+    monkeypatch.setattr(sys, "argv", ['ats_hacker',
+                                      'ats_hacker/tests/test_data/simple-job.txt'])
+    try:
+        cli = CLI()
+        cli.start()
+    except SystemExit:
+        pass
+    out, _ = capsys.readouterr()
+    output_words = out.split()
+    print(output_words)
+    for word in ["Document:", "Word", "Occurances"]:
+        assert output_words.index(word)
 
 
 def test_command_line_run_successful_json(capsys, monkeypatch):
