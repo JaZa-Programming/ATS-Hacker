@@ -4,7 +4,9 @@ Job posting keyword reader/counter
 
 ## Getting Started
 ---
-To run ATS-Hacker, first clone the repo to your machine. Then, execute `python3 ats_hacker /path/to/your/job.txt` from the project's root directory. `python3 ats_hacker -h` displays help and additional command line options.
+To run ATS-Hacker, first clone the repo to your machine and install the dependencies (see below).
+
+Then, execute `python3 ats_hacker /path/to/your/job.txt` from the project's root directory. `python3 ats_hacker -h` displays help and additional command line options.
 
 ATS-Hacker is currently in development. See the [CONTRIBUTING](CONTRIBUTING.md) guidelines if you'd like to jump in and help.
 
