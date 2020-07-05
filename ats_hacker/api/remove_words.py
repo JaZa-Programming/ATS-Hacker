@@ -9,4 +9,14 @@
 
 
 def remove_words(keywords: dict, word_filename: str) -> dict:
-    pass
+    with open(word_filename, 'r') as file:
+        file = file.read()
+        removal_lst = file.split()
+
+        for key, value in keywords.copy().items():
+            if key in removal_lst:
+                del keywords[key]
+
+    return keywords
+
+        

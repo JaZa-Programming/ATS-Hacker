@@ -6,7 +6,7 @@ import json
 
 
 def test_word_removal():
-    doc = "This is a test job description, a discription with a few words to remove."
+    doc = "This is a test job description, a description with a few words to remove."
     keywords = aggregate(doc)
     want = {
         'test': 1,
