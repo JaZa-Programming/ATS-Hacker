@@ -24,7 +24,7 @@ def aggregate(doc: str) -> json:
 
 
 def remove_characters(doc: str) -> str:
-    removal_characters = ['.', ',', '!', '_', '?', ';']
+    removal_characters = ['.', ',', '!', '_', '?', ';', ':']
     for character in removal_characters:
         doc = doc.replace(character, '')
     return doc
