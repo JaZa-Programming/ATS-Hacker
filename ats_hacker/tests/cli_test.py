@@ -74,7 +74,8 @@ def test_command_line_run_successful_pretty(capsys, monkeypatch):
 def test_command_line_run_successful_json(capsys, monkeypatch):
     monkeypatch.setattr(sys, "argv", ['ats_hacker',
                                       'ats_hacker/tests/test_data/simple-job.txt', '-o', 'json'])
-    CLI.start(CLI())
+    cli = CLI()
+    cli.start()
     out, _ = capsys.readouterr()
     want = '{"software": 1, "engineer": 1, "super": 1, "cool": 1, ' \
         '"company": 1, "bozeman": 1, "mt": 1, "or": 1, "remote": 1}\n'
