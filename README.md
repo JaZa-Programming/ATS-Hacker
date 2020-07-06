@@ -2,9 +2,7 @@
 ---
 **ATS-Hacker** is a job posting keyword counter with command line and web (coming soon!) interfaces. Maximize your application's chances by making sure the most used words from the job posting are included in your resume. Counting these words manually is tedious, however, That's where ATS-Hacker comes to the rescue!
 
-<div align="center">
 ![ATS-Hacker screenshot](ats_hacker_screenshot.png)
-</div>
 
 ## Getting Started
 ---
