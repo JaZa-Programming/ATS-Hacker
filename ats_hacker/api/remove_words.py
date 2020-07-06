@@ -15,7 +15,7 @@ def remove_words(keywords: dict, word_filename: str) -> dict:
 
     removal_lst = file.split()
 
-    for key, value in keywords.copy().items():
+    for key, _ in keywords.copy().items():
         if key in removal_lst:
             del keywords[key]
 
