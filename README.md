@@ -31,6 +31,6 @@ To run the test suite, execute `pytest` in the project's root directory.
 
 **Zach Wahrer** - [zachtheclimber](https://github.com/zachtheclimber)
 
-##License
+## License
 ---
 ATS-Hacker is licensed under the GNU General Public License. Check out the [LICENSE](LICENSE) for more details.
