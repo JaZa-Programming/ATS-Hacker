@@ -9,9 +9,10 @@
 
 from api.import_file import import_file
 
+
 def remove_words(keywords: dict, word_filename: str) -> dict:
     file = import_file(word_filename)
-    
+
     removal_lst = file.split()
 
     for key, value in keywords.copy().items():
@@ -19,5 +20,3 @@ def remove_words(keywords: dict, word_filename: str) -> dict:
             del keywords[key]
 
     return keywords
-
-        
