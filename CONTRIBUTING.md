@@ -15,7 +15,7 @@ Thank you for your interest in contributing to ATS-Hacker! The following is a se
  - An explanation of why the feature would be useful.
  - A step by step description of the feature.
 
- **Feel free to reach out to [@zachtheclimber](https://github.com/zachtheclimber) or [JaimeVRodriguez](https://github.com/JaimeVRodriguez) to discuss the feature before you start working on it.**
+ **Feel free to reach out to [@zachtheclimber](https://github.com/zachtheclimber) or [@JaimeVRodriguez](https://github.com/JaimeVRodriguez) to discuss the feature before you start working on it.**
 
  ## Steps For Reporting Bugs
 
