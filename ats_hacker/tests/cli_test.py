@@ -80,3 +80,16 @@ def test_command_line_run_successful_json(capsys, monkeypatch):
     want = '{"software": 1, "engineer": 1, "super": 1, "cool": 1, ' \
         '"company": 1, "bozeman": 1, "mt": 1, "or": 1, "remote": 1}\n'
     assert want == out
+
+
+def test_command_line_run_successful_remove_words_json(capsys, monkeypatch):
+    monkeypatch.setattr(sys, "argv", ['ats_hacker',
+                                      'ats_hacker/tests/test_data/simple-job.txt',
+                                      '-o', 'json',
+                                      '-r', 'ats_hacker/tests/test_data/words-to-remove.txt'])
+    cli = CLI()
+    cli.start()
+    out, _ = capsys.readouterr()
+    want = '{"software": 1, "engineer": 1, "super": 1, "cool": 1, ' \
+        '"company": 1, "bozeman": 1, "mt": 1, "remote": 1}\n'
+    assert want == out
