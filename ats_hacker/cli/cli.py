@@ -5,6 +5,7 @@ import argparse
 from api.aggregator import aggregate
 from api.helpers import decode_json
 from api.import_file import import_file
+from api.remove_words import remove_words
 from clint.textui import colored, columns
 from pyfiglet import Figlet
 
@@ -23,6 +24,9 @@ class CLI:
         self._process_document(import_file(args.filename[0]))
         if args.o == "json":
             self._print_json()
+        elif args.r == 'filename':
+            if True:
+                self.remove_words(args.filename[0])
         else:
             self._print_pretty(args.filename[0])
 
@@ -56,4 +60,6 @@ def parse_args():
                         help='txt filename for keyword aggregation')
     parser.add_argument('-o', metavar='json', type=str, nargs='?',
                         help='output in raw JSON format')
+    parser.add_argument('-r', metavar='filename', type=str, nargs='?',
+                        help='output with removed words' )
     return parser.parse_args()
