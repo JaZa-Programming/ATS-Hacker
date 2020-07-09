@@ -3,7 +3,7 @@
 import argparse
 
 from api.aggregator import aggregate
-from api.helpers import decode_json
+from api.helpers import decode_json, encode_json
 from api.import_file import import_file
 from api.remove_words import remove_words
 from clint.textui import colored, columns
@@ -22,6 +22,15 @@ class CLI:
         """Execute command-line instance of ats_hacker."""
         args = parse_args()
         self._process_document(import_file(args.filename[0]))
+        # Check if user specified word removal file
+        # if args.r:
+        # We need to import the remove_words() function
+        # That function takes a dict, ie. self.keyword_counts
+        # And returns a changed dict, so we need to assign that back to
+        # self.keyword_counts
+        # Then, we need to overwrite self.json_encoded_counts with
+        # the json returned from encode_json
+        # ie.: self.json_encoded_counts = encode_json(self.keyword_counts)
         if args.o == "json":
             self._print_json()
         else:
@@ -61,5 +70,5 @@ def parse_args():
     parser.add_argument('-o', metavar='json', type=str, nargs='?',
                         help='output in raw JSON format')
     parser.add_argument('-r', metavar='filename', type=str, nargs='?',
-                        help='output with removed words' )
+                        help='txt filename for words to remove')
     return parser.parse_args()
