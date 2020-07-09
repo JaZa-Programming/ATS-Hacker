@@ -24,11 +24,11 @@ class CLI:
         self._process_document(import_file(args.filename[0]))
         if args.o == "json":
             self._print_json()
-        elif args.r == 'filename':
-            if True:
-                self.remove_words(args.filename[0])
         else:
             self._print_pretty(args.filename[0])
+
+        if args.r:
+            self.keyword_counts = remove_words(self.keyword_counts, args.r)
 
     def _populate_keyword_counts(self):
         self.json_encoded_counts = aggregate(self.document)
