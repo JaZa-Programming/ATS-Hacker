@@ -16,6 +16,6 @@ def test_word_removal():
         'words': 1,
         'remove': 1
     }
-    got = remove_words(json.loads(keywords),
+    got = remove_words(keywords,
                        "ats_hacker/tests/test_data/words-to-remove.txt")
     assert want == got

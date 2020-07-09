@@ -14,19 +14,19 @@ def test_character_removal():
 def test_aggregate_return_type():
     doc = "This is a test."
     got = aggregate(doc)
-    assert isinstance(got, str)
+    assert isinstance(got, dict)
 
 
 def test_simple_aggregate():
     doc = "This is a test job description."
-    want = json.dumps({
+    want = {
         "this": 1,
         "is": 1,
         "a": 1,
         "test": 1,
         "job": 1,
         "description": 1
-    })
+    }
     got = aggregate(doc)
     assert want == got
 
@@ -34,7 +34,7 @@ def test_simple_aggregate():
 def test_complex_aggregate():
     doc = "This is a test job. This is a test job description. This is" \
         " what I am testing."
-    want = json.dumps({
+    want = {
         "this": 3,
         "is": 3,
         "a": 2,
@@ -45,6 +45,6 @@ def test_complex_aggregate():
         "i": 1,
         "am": 1,
         "testing": 1
-    })
+    }
     got = aggregate(doc)
     assert want == got
