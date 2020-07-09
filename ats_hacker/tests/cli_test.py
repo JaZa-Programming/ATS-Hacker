@@ -33,7 +33,7 @@ def test_command_line_with_no_filename(capsys, monkeypatch):
     except SystemExit:
         pass
     _, err = capsys.readouterr()
-    want = "usage: ats_hacker [-h] [-o [json]] filename\n" \
+    want = "usage: ats_hacker [-h] [-o [json]] [-r [filename]] filename\n" \
         "ats_hacker: error: the following arguments are required: filename\n"
     assert want == err
 
@@ -46,13 +46,14 @@ def test_command_line_print_help_with_dash_h_arg(capsys, monkeypatch):
     except SystemExit:
         pass
     out, _ = capsys.readouterr()
-    want = "usage: ats_hacker [-h] [-o [json]] filename\n\n" \
+    want = "usage: ats_hacker [-h] [-o [json]] [-r [filename]] filename\n\n" \
         "Keyword aggregator for ATS optimization.\n\n" \
         "positional arguments:\n" \
-        "  filename    txt filename for keyword aggregation\n\n" \
+        "  filename       txt filename for keyword aggregation\n\n" \
         "optional arguments:\n" \
-        "  -h, --help  show this help message and exit\n" \
-        "  -o [json]   output in raw JSON format\n"
+        "  -h, --help     show this help message and exit\n" \
+        "  -o [json]      output in raw JSON format\n" \
+        "  -r [filename]  txt filename for words to remove\n"
     assert want == out
 
 
