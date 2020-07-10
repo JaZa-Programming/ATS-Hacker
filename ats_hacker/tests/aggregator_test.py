@@ -1,6 +1,5 @@
 """Tests for the keyword aggregator api."""
 
-import json
 from api.aggregator import aggregate, remove_characters
 
 
