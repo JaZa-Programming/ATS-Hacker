@@ -2,7 +2,6 @@
 
 from api.aggregator import aggregate
 from api.remove_words import remove_words
-import json
 
 
 def test_word_removal():
