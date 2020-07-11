@@ -3,8 +3,9 @@
 import argparse
 
 from api.aggregator import aggregate
-from api.helpers import decode_json
+from api.helpers import decode_json, encode_json
 from api.import_file import import_file
+from api.remove_words import remove_words
 from clint.textui import colored, columns
 from pyfiglet import Figlet
 
@@ -15,23 +16,24 @@ class CLI:
     def __init__(self):
         self.document = ""
         self.keyword_counts = {}
-        self.json_encoded_counts = ""
 
     def start(self):
         """Execute command-line instance of ats_hacker."""
         args = parse_args()
         self._process_document(import_file(args.filename[0]))
+
+        if args.r:
+            self.keyword_counts = remove_words(self.keyword_counts, args.r)
+
         if args.o == "json":
             self._print_json()
         else:
             self._print_pretty(args.filename[0])
 
-    def _populate_keyword_counts(self):
-        self.json_encoded_counts = aggregate(self.document)
-        self.keyword_counts = decode_json(self.json_encoded_counts)
+        
 
     def _print_json(self):
-        print(self.json_encoded_counts)
+        print(encode_json(self.keyword_counts))
 
     def _print_pretty(self, filename):
         print(colored.magenta(Figlet(font='mini').renderText('ATS_Hacker')))
@@ -45,7 +47,7 @@ class CLI:
 
     def _process_document(self, document: str):
         self.document = document
-        self._populate_keyword_counts()
+        self.keyword_counts = aggregate(self.document)
 
 
 def parse_args():
@@ -56,4 +58,6 @@ def parse_args():
                         help='txt filename for keyword aggregation')
     parser.add_argument('-o', metavar='json', type=str, nargs='?',
                         help='output in raw JSON format')
+    parser.add_argument('-r', metavar='filename', type=str, nargs='?',
+                        help='txt filename for words to remove')
     return parser.parse_args()

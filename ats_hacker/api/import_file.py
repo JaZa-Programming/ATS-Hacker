@@ -10,7 +10,7 @@ import sys
 
 
 def import_file(filename: str) -> str:
-    """Opens a file, processes it, and returns a string representation."""
+    """Open a file and return a string representation."""
     try:
         with open(filename, 'r') as file:
             contents = file.read()

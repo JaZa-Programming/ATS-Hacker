@@ -2,29 +2,27 @@
 
 :param doc: A string representation of the input document.
 
-:returns: A JSON document listing aggregated keyword and count pairs.
+:returns: A dict listing aggregated keyword and count pairs.
 
 """
 
-import json  # https://docs.python.org/3/library/json.html
 
-
-def aggregate(doc: str) -> json:
+def aggregate(document: str) -> dict:
     """Aggregate counts keywords in the given string."""
-    doc = remove_characters(doc)
+    document = remove_characters(document)
 
-    keywords_dict = {}
-    for word in doc.lower().split():
-        if word not in keywords_dict:
-            keywords_dict[word] = 1
+    keywords = {}
+    for word in document.lower().split():
+        if word not in keywords:
+            keywords[word] = 1
         else:
-            keywords_dict[word] += 1
+            keywords[word] += 1
 
-    return json.dumps(keywords_dict)
+    return keywords
 
 
-def remove_characters(doc: str) -> str:
+def remove_characters(document: str) -> str:
     removal_characters = ['.', ',', '!', '_', '?', ';', ':']
     for character in removal_characters:
-        doc = doc.replace(character, '')
-    return doc
+        document = document.replace(character, '')
+    return document
