@@ -3,9 +3,6 @@
 import pytest
 from web_server import create_app
 
-TEST_ADDRESS = "localhost"
-TEST_PORT = "5000"
-
 
 @pytest.fixture
 def client():
