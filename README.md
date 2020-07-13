@@ -25,6 +25,7 @@ From the project's root directory, run `pip install -r requirements.txt`. This w
 To run the test suite, execute `pytest` in the project's root directory.
 
 ## Contributing
+---
 **ATS-Hacker is currently in development. See the [CONTRIBUTING](CONTRIBUTING.md) guidelines if you'd like to jump in and help.**
 
 ## Built With
