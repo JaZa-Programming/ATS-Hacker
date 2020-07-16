@@ -3,11 +3,13 @@
 {% block title %}Welcome{% endblock %}
 
 {% block main %}
-<h1>Welcome to ATS-Hacker!</h1>
-<p>Currently in development.</p>
-{% endblock %}
+    <div class="header">
+        <h1>Welcome to ATS-Hacker!</h1>
+        <p>Currently in development.</p>
+    </div>
 
-
-{% block form %}
-<p>Insert Job Posting</p>
+    <label><p>Insert Job Posting</p></label>
+    <form>
+        <textarea rows="15" cols="60"></textarea>
+    </form>
 {% endblock %}

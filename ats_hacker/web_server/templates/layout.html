@@ -3,20 +3,12 @@
 
     <head>
         <!---Styling -->
-        <link rel="stylesheet" type="text/ccs" href= "{{ url_for('static', filename='css/sytle.css') }}">
-        
+        <link rel="stylesheet" href="static/style.0.0.1.css">
+
         <title>ATS-Hacker / {% block title %}{% endblock %}</title>
     </head>
 
     <body>
-        <div class="header">
-                {% block main %} {% endblock %}
-        </div>
-
-        <form>
-            <label>{% block form %} {% endblock %}</label>
-            <textarea rows="15" cols="60"></textarea>
-        </form>
-       
+        {% block main %} {% endblock %}
     </body>
 </html>
