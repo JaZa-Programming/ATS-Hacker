@@ -1,0 +1,9 @@
+{% extends "layout.html" %}
+
+{% block title %}Job Posting Keywords{% endblock %}
+
+{% block main %}
+    {% for keyword, count in keyword_counts.items() %}
+    <p>{{ keyword }}: {{ count }}</p>
+    {% endfor %}
+{% endblock %}

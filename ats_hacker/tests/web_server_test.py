@@ -24,3 +24,10 @@ def test_server_running(client):
 def test_server_redirect(client):
     conn = client.get('/keywords')
     assert b'Redirecting' in conn.data
+
+
+def test_server_keyword_generation(client):
+    test_posting = 'This is a test job posting'
+    conn = client.post('/keywords', data=dict(posting=test_posting))
+    for word in test_posting.lower().split():
+        assert word.encode('utf-8') in conn.data

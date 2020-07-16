@@ -1,7 +1,9 @@
 """The web interface for ats_hacker."""
 
 import os
+from api.aggregator import aggregate
 from flask import Flask, render_template, redirect, request, url_for
+from web_server.forms.job_posting import JobListingForm
 
 
 def create_app(test_config=None):
@@ -20,7 +22,10 @@ def create_app(test_config=None):
     @app.route('/keywords', methods=['GET', 'POST'])
     def keywords():
         if request.method == 'POST':
-            return None
+            form = JobListingForm(request.form)
+            keyword_counts = aggregate(form.posting.data)
+            return render_template("keywords.html",
+                                   keyword_counts=keyword_counts)
         else:
             return redirect(url_for('index'))
 
