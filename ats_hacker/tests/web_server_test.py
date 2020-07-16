@@ -19,3 +19,8 @@ def client():
 def test_server_running(client):
     conn = client.get('/')
     assert b'Welcome to ATS-Hacker' in conn.data
+
+
+def test_server_redirect(client):
+    conn = client.get('/keywords')
+    assert b'Redirecting' in conn.data

@@ -1,7 +1,7 @@
 """The web interface for ats_hacker."""
 
 import os
-from flask import Flask, render_template
+from flask import Flask, render_template, redirect, request, url_for
 
 
 def create_app(test_config=None):
@@ -16,5 +16,12 @@ def create_app(test_config=None):
     @app.route('/')
     def index():
         return render_template("index.html")
+
+    @app.route('/keywords', methods=['GET', 'POST'])
+    def keywords():
+        if request.method == 'POST':
+            return None
+        else:
+            return redirect(url_for('index'))
 
     return app
