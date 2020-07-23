@@ -3,14 +3,28 @@
 {% block title %}Welcome{% endblock %}
 
 {% block main %}
-    <div class="header">
+    <nav class="navbar navbar-light bg-light">
+        <span class="navbar-brand mb-0 h1">ATS-Hacker</span>
+    </nav>
+
+    <div class="intro">
         <h1>Welcome to ATS-Hacker!</h1>
         <p>Currently in development.</p>
+        <br>
+        <br>
+        <label><p>Insert Job Posting</p></label>
     </div>
 
+    <div class="form">
+        <form action="{{ url_for('keywords')}}" method="POST">
+            <textarea name="posting" rows="15" cols="60"></textarea>
+            <br>
+            <input type="submit" value="Get Keywords">
+        </form>
+    </div>
 
-    <form>
-        <label><p>Insert Job Posting</p></label>
-        <textarea rows="15" cols="60"></textarea>
-    </form>
+    <div>
+
+
+    
 {% endblock %}
