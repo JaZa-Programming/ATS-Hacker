@@ -10,13 +10,9 @@
 from api.import_file import import_file
 
 
-def remove_words(keywords: dict, word_filename: str) -> dict:
-    file = import_file(word_filename)
-
-    removal_lst = file.split()
-
-    for key in keywords.copy().keys():
-        if key in removal_lst:
-            del keywords[key]
+def remove_words(keywords: dict, words_to_remove: list) -> dict:
+    for keyword in keywords.copy().keys():
+        if keyword in words_to_remove:
+            del keywords[keyword]
 
     return keywords

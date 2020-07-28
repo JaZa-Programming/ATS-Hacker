@@ -2,6 +2,7 @@
 
 from api.aggregator import aggregate
 from api.remove_words import remove_words
+from api.import_file import import_file
 
 
 def test_word_removal():
@@ -16,5 +17,5 @@ def test_word_removal():
         'remove': 1
     }
     got = remove_words(keywords,
-                       "ats_hacker/tests/test_data/words-to-remove.txt")
+                       import_file("ats_hacker/tests/test_data/words-to-remove.txt"))
     assert want == got

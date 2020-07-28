@@ -23,14 +23,12 @@ class CLI:
         self._process_document(import_file(args.filename[0]))
 
         if args.r:
-            self.keyword_counts = remove_words(self.keyword_counts, args.r)
+            self.keyword_counts = remove_words(self.keyword_counts, import_file(args.r))
 
         if args.o == "json":
             self._print_json()
         else:
             self._print_pretty(args.filename[0])
-
-        
 
     def _print_json(self):
         print(encode_json(self.keyword_counts))
