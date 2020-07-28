@@ -2,6 +2,7 @@
 
 import os
 from api.aggregator import aggregate
+from api.remove_words import remove_words
 from flask import Flask, render_template, redirect, request, url_for
 from web_server.forms.job_posting import JobListingForm
 
@@ -24,6 +25,8 @@ def create_app(test_config=None):
         if request.method == 'POST':
             form = JobListingForm(request.form)
             keyword_counts = aggregate(form.posting.data)
+            if form.exclude.data:
+                keyword_counts = remove_words(keyword_counts, form.exclude.data)
             return render_template("keywords.html",
                                    keyword_counts=keyword_counts)
         else:

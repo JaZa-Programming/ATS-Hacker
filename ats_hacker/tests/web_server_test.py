@@ -31,3 +31,13 @@ def test_server_keyword_generation(client):
     conn = client.post('/keywords', data=dict(posting=test_posting))
     for word in test_posting.lower().split():
         assert word.encode('utf-8') in conn.data
+
+
+def test_server_keyword_exclusion(client):
+    test_posting = 'This is a test job posting'
+    words_to_exclude = 'this is a'
+    want = 'test job posting'
+    conn = client.post('/keywords',
+                       data=dict(posting=test_posting, exclude=words_to_exclude))
+    for word in want.split():
+        assert word.encode('utf-8') in conn.data
